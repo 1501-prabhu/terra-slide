@@ -1,0 +1,237 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+/* ROOT VARIABLES */
+:root {
+    --primaryColor: #916e46;
+    --secondaryColor: #c0b29c;
+    --tertiaryColor: #666666;
+    --darkColor: #000000;
+    --lightColor: #ffffff;
+    --regularFont: 1.6rem;
+    --headingFont: 4rem;
+    --ffPrimary: "Playfair Display", serif;
+    --ffSecondary: "Inter", sans-serif;
+    --border: 1px solid var(--primaryColor);
+    --borderRadius: 0.5rem;
+    --primaryShadow: 0 4px 8px rgba(20, 71, 108, 0.15);
+    --secondaryShadow: 0 8px 16px rgba(20, 71, 108, 0.2);
+}
+
+/* BASE STYLES */
+body {
+    font-family: var(--ffSecondary);
+    font-size: var(--regularFont);
+    line-height: 1.6;
+    color: var(--darkColor);
+    overflow-x: hidden;
+}
+
+/* TYPOGRAPHY */
+h1,
+h2 {
+    font-family: var(--ffPrimary);
+}
+
+h3,
+h4,
+h5,
+h6,
+p,
+li,
+a {
+    font-family: var(--ffSecondary);
+}
+
+/* SECTION STYLES */
+.section-container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 6rem;
+}
+
+.section-title {
+    font-size: var(--headingFont);
+    margin-bottom: 2rem;
+    color: var(--darkColor);
+    font-weight: 700;
+    position: relative;
+    display: inline-block;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -1.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    background: var(--primaryColor);
+    border-radius: 2px;
+}
+
+.section-subtitle {
+    font-size: 1.8rem;
+    color: var(--tertiaryColor);
+    max-width: 700px;
+    margin: 3rem auto 0;
+}
+
+/* TESTIMONIALS SECTION */
+.testimonials {
+    padding: 8rem 4rem;
+    background: #f8f9fa;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Carousel wrapper */
+.carousel-track {
+    display: flex;
+    gap: 4rem;
+    width: max-content;
+    animation: scroll 40s linear infinite;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.testimonials-grid {
+    display: flex;
+    gap: 4rem;
+    width: max-content;
+    flex-shrink: 0;
+}
+
+/* Testimonial Card */
+.testimonial-card {
+    background: var(--lightColor);
+    padding: 4rem;
+    border-radius: var(--borderRadius);
+    box-shadow: var(--primaryShadow);
+    border: var(--border);
+    transition: all 0.3s ease;
+    position: relative;
+    flex: 0 0 350px;
+}
+
+.testimonial-card::before {
+    content: '"';
+    position: absolute;
+    top: 2rem;
+    left: 3rem;
+    font-size: 8rem;
+    color: var(--secondaryColor);
+    opacity: 0.2;
+    font-family: var(--ffPrimary);
+    line-height: 1;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--secondaryShadow);
+}
+
+.testimonial-text {
+    font-size: 1.6rem;
+    color: var(--tertiaryColor);
+    line-height: 1.8;
+    margin-bottom: 3rem;
+    font-style: italic;
+    position: relative;
+    z-index: 1;
+}
+
+.testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.testimonial-avatar {
+    width: 6rem;
+    height: 6rem;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primaryColor), var(--secondaryColor));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--lightColor);
+    font-size: 2.4rem;
+    font-weight: 700;
+}
+
+.testimonial-info h4 {
+    font-size: 1.8rem;
+    color: var(--darkColor);
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.testimonial-info p {
+    font-size: 1.4rem;
+    color: var(--tertiaryColor);
+}
+
+/* NAVIGATION BUTTONS (OPTIONAL) */
+.testimonial-buttons {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: space-between;
+    pointer-events: none;
+}
+
+.testimonial-buttons button {
+    pointer-events: all;
+    background: #000;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.testimonial-buttons button:hover {
+    background: #333;
+}
+
+/* ANIMATIONS */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
